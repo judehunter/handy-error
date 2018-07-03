@@ -8,15 +8,14 @@ Also handy for e.g. Express.js error handling.
 ## Usage
 Require the module with:
 ```javascript
-const Err = require('handy-error');
+require('handy-error');
 ```
-You only need to do that in your base file!
-
-Use it in either way, whichever suits **You**:
+Now You can use it like your usual Error class, but on drugs:
 ```javascript
-throw new Err(errCode, errMsg);
-throw Err(errCode, errMsg)
+throw new Error(errCode, errMsg, {extraInfo, ...});
+throw Error(errCode, errMsg, {extraInfo, ...})
 ```
+Use the extra object to pass some **handy** info to your error handler
 
 ## Examples
 No more doing this:
@@ -31,14 +30,23 @@ if(!fileExists){
 
 You can now get used to **this**:
 ```javascript
-if (!fileExists) throw Err('ENOENT', 'Not Found');     //*Handy!*
+if (!fileExists) throw Error('ENOENT', 'Not Found', {requestPath});     //*Handy!*
 ```
 
 Handy error **handl**ing in express:
 ```javascript
 app.get('/api', (req, res, next) => {
-  if (!req.query.apikey) next(Err(401, 'Unauthorized'));
+  if (!req.query.apikey) next(Error(401, 'Unauthorized', {isXHR: req.xhr}));
 });
+```
+
+### Accessing extras
+
+You can write anything to the extra object - 3rd argument.
+Then You simply read/write to it like that:
+```javascript
+var error = new Error('416', 'Range Not Satisfiable', {acceptableRange: 400});
+console.log(error.extra.acceptableRange) // 400
 ```
 
 
