@@ -1,0 +1,25 @@
+{
+  "name": "handy-error",
+  "version": "1.0.1",
+  "description": "Makes error handling excruciatingly easy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judehunter/handy-error.git"
+  },
+  "keywords": [
+    "error",
+    "handling",
+    "handy",
+    "throw"
+  ],
+  "author": "Mateusz Sowiński-Smętny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/judehunter/handy-error/issues"
+  },
+  "homepage": "https://github.com/judehunter/handy-error#readme"
+}
