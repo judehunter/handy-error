@@ -1,4 +1,4 @@
-# HandyError
+# Handy Error
 Makes error **hand**ling in Node.js excruciatingly *easy*:boom:.
 
 Throw your errors with a single one-liner!
