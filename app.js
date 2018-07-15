@@ -1,7 +1,14 @@
-var _Error = Error;
-Error = function (c = 'ERR', m = '', x = {}){
-	let e = new _Error(m);
-	e.code = c;
-	e.extra = x;
+var defC, defM, defX;
+function HandyError (c = defC, m = defM, x = defX){
+	let e = new Error(m);
+	Error.captureStackTrace(e, HandyError);
+	if (c)
+		e.code = c;
+	if (x)
+		e.extra = x;
 	return e;
+}
+module.exports = HandyError;
+module.exports.config = (c, m, x) => {
+	defC = c; defM = m; defX = x; return HandyError;
 }
